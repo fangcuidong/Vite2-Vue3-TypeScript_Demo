@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 
 defineProps<{ msg: string }>();
 
@@ -48,5 +48,10 @@ code {
   padding: 2px 4px;
   border-radius: 4px;
   color: #304455;
+}
+</style>
+<style lang="scss" scoped>
+h1 {
+  color: $test-color;
 }
 </style>
