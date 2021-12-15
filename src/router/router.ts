@@ -1,3 +1,4 @@
+// vue-router: https://next.router.vuejs.org/zh/guide/
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
