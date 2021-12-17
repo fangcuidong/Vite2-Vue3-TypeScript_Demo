@@ -2,7 +2,8 @@
   "name": "vite_vue3_ts",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "vite": "vite",
+    "dev": "node ./core_modules/dev-tools/run-dev",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
@@ -28,6 +29,7 @@
     "eslint-plugin-vue": "^8.2.0",
     "prettier": "^2.5.1",
     "sass": "^1.45.0",
+    "shelljs": "^0.8.4",
     "typescript": "^4.4.4",
     "vite": "^2.7.1",
     "vue-tsc": "^0.29.8"
