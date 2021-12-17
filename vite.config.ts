@@ -48,7 +48,7 @@ export default defineConfig({
    */
   optimizeDeps: {
     // entries: [],
-    // include
+    // include: [],
   },
 
   /**
@@ -59,7 +59,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "@/style/main.scss";',
+        additionalData: '@import "@/style/variables.scss";',
       },
     },
   },
