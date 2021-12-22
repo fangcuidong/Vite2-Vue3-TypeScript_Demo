@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "vite": "vite",
-    "dev": "node ./core_modules/dev-tools/run-dev",
+    "predev": "node ./core_modules/dev-tools/run-dev",
+    "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
