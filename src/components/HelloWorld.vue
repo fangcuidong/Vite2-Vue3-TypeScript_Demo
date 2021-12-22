@@ -4,11 +4,6 @@ import { ref } from 'vue';
 defineProps<{ msg: string }>();
 
 const count = ref(0);
-const p1 = Promise.resolve(1);
-const p2 = Promise.resolve(2);
-Promise.allSettled([p1, p2]).then((res) => {
-  console.log(res);
-});
 </script>
 
 <template>

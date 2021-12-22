@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import legacy from '@vitejs/plugin-legacy';
+// import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -28,6 +29,15 @@ export default defineConfig({
         'es.promise.finally',
       ],
     }),
+
+    /**
+     * 类似 webpack resolve.modules 添加模块目录
+     *
+     * @see https://github.com/rollup/plugins/tree/master/packages/node-resolve#moduledirectories
+     */
+    // nodeResolve({
+    //   moduleDirectories: [path.resolve(__dirname, 'core_modules')],
+    // }),
   ],
 
   /**
@@ -80,6 +90,18 @@ export default defineConfig({
     cors: true,
     fs: {
       // allow: ['path'],
+    },
+  },
+
+  /**
+   * 构建选项
+   *
+   * @see https://cn.vitejs.dev/config/#build-options
+   */
+  build: {
+    // url https://rollupjs.org/guide/en/#big-list-of-options
+    rollupOptions: {
+      // external: [/core_modules/],
     },
   },
 });
