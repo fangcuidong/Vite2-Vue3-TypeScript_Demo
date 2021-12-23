@@ -114,6 +114,14 @@ export default defineConfig({
    * @see https://cn.vitejs.dev/config/#build-options
    */
   build: {
+    // 生产环境打包配置
+    //去除 console debugger
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
     // url https://rollupjs.org/guide/en/#big-list-of-options
     rollupOptions: {
       // external: [/core_modules/],
