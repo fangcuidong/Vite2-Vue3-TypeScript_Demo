@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "vite": "vite",
-    "predev": "node ./core_modules/dev-tools/run-dev",
+    "predev": "node ./project_modules/dev-tools/run-dev",
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
@@ -30,6 +30,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.2.0",
+    "fs-extra": "^10.0.0",
+    "inquirer": "^8.2.0",
     "prettier": "^2.5.1",
     "sass": "^1.45.0",
     "shelljs": "^0.8.4",

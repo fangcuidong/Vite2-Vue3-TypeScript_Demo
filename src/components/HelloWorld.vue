@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import loginApi from '@/service/api/login';
 
 defineProps<{ msg: string }>();
 
 const count = ref(0);
+const userName = ref('');
+const userPassword = ref('');
+const request = () =>
+  loginApi
+    .login({ userName: userName.value, passWord: userPassword.value })
+    .then((res) => {
+      console.log(res);
+    });
 </script>
 
 <template>
@@ -31,6 +40,9 @@ const count = ref(0);
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
+  <input v-model="userName" type="text" placeholder="账号" />
+  <input v-model="userPassword" type="password" placeholder="密码" />
+  <button @click="request">登录</button>
 </template>
 
 <style scoped>

@@ -4,6 +4,13 @@ import path from 'path';
 import legacy from '@vitejs/plugin-legacy';
 // import { nodeResolve } from '@rollup/plugin-node-resolve';
 
+//读取【开发可选配置】（此文件根据命令行的选择自动生成）
+const { url } = require('./project_modules/dev-tools/dev-optional-config');
+
+if (!url) {
+  throw new Error('请配置本地开发服务的代理地址');
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -80,12 +87,20 @@ export default defineConfig({
    * @see https://cn.vitejs.dev/config/#server-options
    */
   server: {
+    // host: 'localhost',
     // 开发服务器端口
     port: 3000,
     // 开发服务器启动时自动在浏览器打开
     open: 'firefox',
     // 为开发服务器配置自定义代理规则
-    proxy: {},
+    proxy: {
+      '^/api/.*': {
+        target: url,
+        // target: 'http://localhost:8888',
+        rewrite: (path) => path.replace(/^\/api/, ''),
+        // changeOrigin: true, //是否跨域
+      },
+    },
     // 跨域
     cors: true,
     fs: {
