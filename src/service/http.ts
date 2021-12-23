@@ -2,20 +2,10 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import NProgress from 'nprogress';
 
-//读取【开发可选配置】（此文件根据命令行的选择自动生成）
-const { url } = await import(
-  '../../project_modules/dev-tools/dev-optional-config.json'
-);
-
-if (!url) {
-  throw new Error('请配置本地开发服务的代理地址');
-}
-
 // 设置请求头和请求路径
-// axios.defaults.baseURL = url;
 axios.defaults.baseURL = '/api';
 axios.defaults.timeout = 10000;
-// axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
+axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 axios.interceptors.request.use(
   (config): AxiosRequestConfig<any> => {
     const token = window.sessionStorage.getItem('token');
